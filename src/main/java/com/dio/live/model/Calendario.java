@@ -1,10 +1,11 @@
 package com.dio.live.model;
 
 import lombok.*;
-import org.hibernate.envers.Audited;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -13,9 +14,11 @@ import javax.persistence.Id;
 @EqualsAndHashCode
 @Builder
 @Entity
-@Audited
-public class NivelAcesso {
+public class Calendario {
     @Id
-    private long id;
+    private Long id;
+    @ManyToOne
+    private TipoData tipoData;
     private String descricao;
+    private LocalDateTime dataEspecial;
 }
